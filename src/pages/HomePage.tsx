@@ -2,8 +2,20 @@ import AdvertisingImg1 from '../assets/images/image1.png';
 import AdvertisingImg2 from '../assets/images/image2.png';
 import ChevrotIcon from '../assets/icons/ic_chevrot.svg';
 import { Footer } from '../components/shared/Footer';
+import { useGetUserInfo } from '../hooks/useGetUserInfo';
 
 export const HomePage = () => {
+  const {
+    user,
+    canSubmit,
+    isGettingUserInfo,
+    isAcceptedTerms,
+    doGetUserInfo,
+    handleCheckboxChange,
+    handleInputChange,
+  } = useGetUserInfo();
+  const { docNumber, cellphoneNumber, plateNumber } = user;
+
   return (
     <main className='home-container'>
       <section className='advertising'>
@@ -29,7 +41,7 @@ export const HomePage = () => {
         />
         <Footer />
       </section>
-      <form className='home-form'>
+      <form onSubmit={doGetUserInfo} className='home-form'>
         <h2 className='home-form__title'>Déjanos tus datos</h2>
         <div className='home-form__doc-input'>
           <div className='home-form__doc-label'>
@@ -37,21 +49,46 @@ export const HomePage = () => {
             <img src={ChevrotIcon} alt='chevron down' />
           </div>
           <input
+            onChange={handleInputChange}
             className='home-form__input'
+            name='docNumber'
+            value={docNumber}
             placeholder='Nro. de doc'
             type='text'
+            pattern='\d{8}'
+            title='Sólo 8 dígitos'
           />
         </div>
-        <input className='home-form__input' placeholder='Celular' type='text' />
-        <input className='home-form__input' placeholder='Placa' type='text' />
+        <input
+          onChange={handleInputChange}
+          className='home-form__input'
+          value={cellphoneNumber}
+          name='cellphoneNumber'
+          placeholder='Celular'
+          type='tel'
+        />
+        <input
+          onChange={handleInputChange}
+          className='home-form__input'
+          value={plateNumber}
+          name='plateNumber'
+          placeholder='Placa'
+          type='text'
+        />
         <div className='home-form__check-input'>
-          <input type='checkbox' />
+          <input
+            type='checkbox'
+            onChange={handleCheckboxChange}
+            checked={isAcceptedTerms}
+          />
           <p>
             Acepto la <span>Política de Protección de Datos Personales</span> y
             los <span>Términos y Condiciones</span>
           </p>
         </div>
-        <button>Cotízalo</button>
+        <button disabled={!canSubmit}>
+          {isGettingUserInfo ? 'Cotizando' : 'Cotízalo'}
+        </button>
       </form>
     </main>
   );

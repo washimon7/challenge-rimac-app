@@ -3,10 +3,14 @@ import { UserInfo } from '../../interfaces/userInterface';
 
 interface InsuranceState {
   userInfo: UserInfo | null;
+  justGotUserInfo: boolean;
+  isGettingUserInfo: boolean;
 }
 
 const initialState: InsuranceState = {
   userInfo: null,
+  justGotUserInfo: false,
+  isGettingUserInfo: false,
 };
 
 export const insuranceSlice = createSlice({
@@ -16,9 +20,22 @@ export const insuranceSlice = createSlice({
     gotUserInfo: (state: InsuranceState, action: PayloadAction<UserInfo>) => {
       state.userInfo = action.payload;
     },
+    gotUserInfoSuccessfully: (
+      state: InsuranceState,
+      action: PayloadAction<boolean>
+    ) => {
+      state.justGotUserInfo = action.payload;
+    },
+    setIsGettingUserInfo: (
+      state: InsuranceState,
+      action: PayloadAction<boolean>
+    ) => {
+      state.isGettingUserInfo = action.payload;
+    },
   },
 });
 
-export const {} = insuranceSlice.actions;
+export const { gotUserInfo, gotUserInfoSuccessfully, setIsGettingUserInfo } =
+  insuranceSlice.actions;
 
 export default insuranceSlice.reducer;
