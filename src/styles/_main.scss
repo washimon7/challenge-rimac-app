@@ -1,6 +1,8 @@
 @import 'colors';
 @import 'variables';
+@import 'components/app';
 @import 'components/header';
+@import 'pages/home';
 
 html {
   box-sizing: border-box;

@@ -1,0 +1,206 @@
+.home-container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 768px) {
+    & {
+      grid-template-columns: 2fr 3fr;
+    }
+  }
+}
+.advertising {
+  background-color: $gray-color-7;
+  padding-top: 96px;
+  position: relative;
+
+  &__content {
+    max-width: 300px;
+    padding: 0 32px;
+    height: 308px;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 768px) {
+      & {
+        padding: 0;
+        padding-left: 120px;
+        height: auto;
+      }
+    }
+  }
+  &__image1 {
+    width: 112px;
+    height: 276px;
+    position: absolute;
+    top: 145px;
+    right: 0;
+    @media screen and (min-width: 768px) {
+      & {
+        display: none;
+      }
+    }
+  }
+  &__image2 {
+    display: none;
+    @media screen and (min-width: 768px) {
+      & {
+        display: block;
+        padding-left: 120px;
+      }
+    }
+  }
+  &__subtitle {
+    font-family: $font-lato;
+    font-size: 10px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 8;
+    color: $gray-color-1;
+    line-height: 16px;
+  }
+  &__title {
+    font-family: $font-lato;
+    font-size: 28px;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 12;
+    color: $gray-color-1;
+    line-height: 36px;
+  }
+  &__title--red {
+    color: $accent-color;
+  }
+  &__description {
+    font-family: $font-roboto;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    color: $gray-color-2;
+    line-height: 24px;
+  }
+}
+
+.home-form {
+  margin-top: 40px;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    & {
+      width: 288px;
+      margin-left: 20%;
+      padding-top: 112px;
+    }
+  }
+
+  &__title {
+    font-family: $font-lato;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: $gray-color-1;
+    margin: 0;
+    margin-bottom: 24px;
+  }
+  &__input {
+    height: 56px;
+    padding: 16px;
+    font-family: $font-lato;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $gray-color-1;
+    width: 100%;
+    margin-bottom: 16px;
+    outline: none;
+    border: 1px solid $gray-color-4;
+  }
+  &__input::placeholder {
+    color: $gray-color-2;
+  }
+  &__doc-input {
+    display: flex;
+  }
+  &__doc-label {
+    display: flex;
+    width: 96px;
+    align-items: center;
+    margin-bottom: 16px;
+    justify-content: center;
+    border: 1px solid $gray-color-4;
+    border-right: none;
+
+    span {
+      font-family: $font-lato;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: $gray-color-1;
+      margin-right: 8px;
+    }
+  }
+  &__check-input {
+    display: flex;
+    margin-bottom: 32px;
+
+    input[type='checkbox'] {
+      cursor: pointer;
+      height: 20px;
+      width: 20px;
+      border: 1px solid $gray-color-4;
+      background-color: $green-color;
+    }
+    p {
+      margin: 0;
+      font-family: $font-roboto;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 20px;
+      letter-spacing: 0.2px;
+      color: $gray-color-2;
+      span {
+        color: $gray-color-1;
+        text-decoration: underline;
+      }
+    }
+  }
+  & > button {
+    background-color: $accent-color;
+    height: 56px;
+    border-radius: 8px;
+    margin-bottom: 54px;
+    font-family: $font-lato;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: $body-color;
+    @media screen and (min-width: 768px) {
+      & {
+        width: 192px;
+      }
+    }
+  }
+}
+
+.footer {
+  display: none;
+  font-family: $font-roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  padding-left: 120px;
+  color: $gray-color-3;
+  margin-top: 99px;
+  @media screen and (min-width: 768px) {
+    & {
+      display: block;
+    }
+  }
+}

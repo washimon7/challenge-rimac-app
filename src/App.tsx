@@ -4,12 +4,10 @@ import './styles/_main.scss';
 
 function App() {
   return (
-    <main>
-      <section>
-        <Header />
-        <Outlet />
-      </section>
-    </main>
+    <div className='main-wrapper'>
+      <Header />
+      <Outlet />
+    </div>
   );
 }
 
