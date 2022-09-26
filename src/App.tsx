@@ -1,12 +1,15 @@
-import { Provider } from 'react-redux';
-import { store } from './app/store';
+import { Outlet } from 'react-router-dom';
+import { Header } from './components';
 import './styles/_main.scss';
 
 function App() {
   return (
-    <Provider store={store}>
-      <div>Main</div>
-    </Provider>
+    <main>
+      <section>
+        <Header />
+        <Outlet />
+      </section>
+    </main>
   );
 }
 
