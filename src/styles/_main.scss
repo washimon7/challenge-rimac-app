@@ -3,6 +3,7 @@
 @import 'components/app';
 @import 'components/header';
 @import 'pages/home';
+@import 'pages/quoteInsurance';
 
 html {
   box-sizing: border-box;
@@ -17,8 +18,3 @@ html {
 body {
   margin: 0;
 }
-
-h1 {
-  color: $green-color;
-}
-// font-family: 'Roboto', sans-serif;
