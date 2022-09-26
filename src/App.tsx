@@ -1,7 +1,13 @@
-import './App.css';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
+import './styles/_main.scss';
 
 function App() {
-  return <div>Main</div>;
+  return (
+    <Provider store={store}>
+      <div>Main</div>
+    </Provider>
+  );
 }
 
 export default App;
