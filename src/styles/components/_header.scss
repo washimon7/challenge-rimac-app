@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 56px;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  &__logo {
+    width: 99px;
+    height: 16px;
+  }
+  &__contact {
+    display: flex;
+    align-items: center;
+    font-family: $font-roboto;
+  }
+  &__has-doubt {
+    display: none;
+    font-size: 12px;
+    color: $paragraph-color-2;
+    margin-right: 23px;
+  }
+  &__call-us,
+  &__phone-number {
+    font-size: 14px;
+    color: $acian-hover-color-2;
+  }
+  &__phone-number {
+    display: none;
+  }
+  &__phone {
+    display: flex;
+    align-items: center;
+  }
+  &__phone-icon {
+    width: 13px;
+    height: 16px;
+    margin-right: 5px;
+  }
+  @media screen and (min-width: 768px) {
+    &__phone-number,
+    &__has-doubt {
+      display: block;
+    }
+    &__call-us {
+      display: none;
+    }
+  }
+}

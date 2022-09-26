@@ -1,3 +1,22 @@
-h1 {
-	color: red;
+@import 'colors';
+@import 'variables';
+@import 'components/header';
+
+html {
+  box-sizing: border-box;
 }
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  color: $green-color;
+}
+// font-family: 'Roboto', sans-serif;
