@@ -1,6 +1,6 @@
-import AdvertisingImg1 from '../assets/images/image1.png';
-import AdvertisingImg2 from '../assets/images/image2.png';
-import ChevrotIcon from '../assets/icons/ic_chevrot.svg';
+import AdvertisingImg1 from '../assets/images/char1.png';
+import AdvertisingImg2 from '../assets/images/char2.png';
+import RedArrowDown from '../assets/icons/ic_red_arrow_down.svg';
 import { Footer } from '../components/shared/Footer';
 import { useGetUserInfo } from '../hooks/useGetUserInfo';
 
@@ -46,7 +46,7 @@ export const HomePage = () => {
         <div className='home-form__doc-input'>
           <div className='home-form__doc-label'>
             <span>DNI</span>
-            <img src={ChevrotIcon} alt='chevron down' />
+            <img src={RedArrowDown} alt='chevron down' />
           </div>
           <input
             onChange={handleInputChange}
@@ -86,8 +86,8 @@ export const HomePage = () => {
             los <span>Términos y Condiciones</span>
           </p>
         </div>
-        <button disabled={!canSubmit}>
-          {isGettingUserInfo ? 'Cotizando' : 'Cotízalo'}
+        <button disabled={!canSubmit || isGettingUserInfo}>
+          {isGettingUserInfo ? 'Cotizando..' : 'Cotízalo'}
         </button>
       </form>
     </main>

@@ -12,6 +12,14 @@
   background-color: $gray-color-7;
   padding-top: 96px;
   position: relative;
+  @media screen and (min-width: 768px) {
+    background: url('/src/assets/images/street-bg.png') no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
   &__content {
     max-width: 300px;
@@ -41,15 +49,17 @@
   }
   &__image2 {
     display: none;
+    width: 231px;
+    height: 250px;
     @media screen and (min-width: 768px) {
       & {
         display: block;
-        padding-left: 120px;
+        margin-left: 120px;
       }
     }
   }
   &__subtitle {
-    font-family: $font-lato;
+    font-family: $main-font;
     font-size: 10px;
     font-weight: 700;
     margin: 0;
@@ -58,7 +68,7 @@
     line-height: 16px;
   }
   &__title {
-    font-family: $font-lato;
+    font-family: $main-font;
     font-size: 28px;
     font-weight: 400;
     margin: 0;
@@ -70,7 +80,7 @@
     color: $accent-color;
   }
   &__description {
-    font-family: $font-roboto;
+    font-family: $text-font;
     font-size: 14px;
     font-weight: 400;
     margin: 0;
@@ -95,7 +105,7 @@
   }
 
   &__title {
-    font-family: $font-lato;
+    font-family: $main-font;
     font-weight: 400;
     font-size: 24px;
     line-height: 32px;
@@ -106,7 +116,7 @@
   &__input {
     height: 56px;
     padding: 16px;
-    font-family: $font-lato;
+    font-family: $main-font;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -132,7 +142,7 @@
     border-right: none;
 
     span {
-      font-family: $font-lato;
+      font-family: $main-font;
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
@@ -154,7 +164,7 @@
     }
     p {
       margin: 0;
-      font-family: $font-roboto;
+      font-family: $text-font;
       font-weight: 300;
       font-size: 12px;
       line-height: 20px;
@@ -171,7 +181,7 @@
     height: 56px;
     border-radius: 8px;
     margin-bottom: 54px;
-    font-family: $font-lato;
+    font-family: $main-font;
     font-weight: 700;
     font-size: 14px;
     line-height: 16px;
@@ -180,17 +190,22 @@
     text-transform: uppercase;
     cursor: pointer;
     color: $body-color;
+    border: none;
     @media screen and (min-width: 768px) {
       & {
         width: 192px;
       }
+    }
+    &:disabled {
+      background-color: $accent-mono-color;
+      cursor: auto;
     }
   }
 }
 
 .footer {
   display: none;
-  font-family: $font-roboto;
+  font-family: $text-font;
   font-style: normal;
   font-weight: 300;
   font-size: 12px;

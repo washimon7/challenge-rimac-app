@@ -1,11 +1,726 @@
 .quote-insurance-container {
   margin-top: 56px;
   background-color: $body-color;
+  border-top: 1px solid $gray-color-6;
 
-  section {
-    margin: 0 96px;
+  @media screen and (min-width: 768px) {
+    & {
+      display: grid;
+      grid-template-columns: 2fr 3fr 2fr;
+    }
   }
 }
-.vehicle-info {
+
+.quote-state-1 {
+  display: flex;
+  height: 48px;
+  align-items: center;
+  border-bottom: 1px solid $gray-color-6;
+  padding: 0 32px;
+
+  @media screen and (min-width: 768px) {
+    & {
+      display: none;
+    }
+  }
+
+  &__text {
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: $gray-color-2;
+    margin: 0;
+    margin-left: 12px;
+    margin-right: 16px;
+  }
+  &__bar-progress {
+    flex: 1;
+    background-color: $blue-color;
+    height: 6px;
+    border-radius: 20px;
+  }
+}
+
+.quote-state-2 {
+  display: none;
   background-color: $gray-color-7;
+  @media screen and (min-width: 768px) {
+    & {
+      display: block;
+    }
+  }
+  &__content {
+    margin-top: 52px;
+    margin-left: 32px;
+    @media screen and (min-width: 1024px) {
+      margin-left: 120px;
+    }
+  }
+  &__step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 44px;
+  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+  &__text {
+    font-family: $main-font;
+    margin-left: 16px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    color: $gray-color-1;
+    &--past {
+      color: $gray-color-3;
+    }
+  }
+}
+
+.insurance {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    & {
+      width: 448px;
+      padding: 0 32px;
+      margin-bottom: 100px;
+    }
+  }
+  &__button-back {
+    display: none;
+    align-items: center;
+    margin-top: 48px;
+    margin-bottom: 24px;
+    @media screen and (min-width: 768px) {
+      & {
+        display: flex;
+      }
+    }
+    img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+    span {
+      margin-left: 16px;
+      font-family: $main-font;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: $gray-color-3;
+    }
+  }
+  &__bg {
+    padding: 40px 32px 56px 32px;
+    background-color: $gray-color-7;
+
+    @media screen and (min-width: 768px) {
+      & {
+        padding: 0;
+        background-color: $body-color;
+      }
+    }
+  }
+  &__title1 {
+    margin: 0;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.6px;
+    color: $gray-color-1;
+    margin-bottom: 8px;
+    @media screen and (min-width: 768px) {
+      & {
+        display: none;
+      }
+    }
+  }
+  &__title2 {
+    margin: 0;
+    display: none;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.6px;
+    color: $gray-color-1;
+    margin-bottom: 8px;
+
+    @media screen and (min-width: 768px) {
+      & {
+        display: block;
+      }
+    }
+
+    span {
+      color: $accent-color;
+    }
+  }
+  &__subtitle {
+    margin: 0;
+    font-family: $text-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: $gray-color-2;
+    margin-bottom: 24px;
+    @media screen and (min-width: 768px) {
+      & {
+        margin-bottom: 44px;
+      }
+    }
+  }
+  &__vehicle-info {
+    margin-top: 24px;
+    height: 148px;
+    padding-top: 44px;
+    padding-left: 24px;
+    border-radius: 12px;
+    background-color: $body-color;
+    position: relative;
+
+    @media screen and (min-width: 768px) {
+      & {
+        margin-top: 0;
+        border: 3px solid $gray-color-6;
+      }
+    }
+
+    div {
+      width: 145px;
+    }
+  }
+  &__vehicle-plate {
+    font-family: $text-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: $gray-color-3;
+  }
+  &__vehicle-model {
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.2px;
+    color: $gray-color-1;
+  }
+  &__character {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    height: 156px;
+    @media screen and (min-width: 768px) {
+      & {
+        right: 20px;
+      }
+    }
+  }
+  &__quote-calculation {
+    padding: 44px 32px 0 32px;
+    margin-bottom: 36px;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 768px) {
+      & {
+        margin: 0;
+        padding: 0;
+        margin-top: 55px;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+  &__caption {
+    margin: 0;
+    margin-bottom: 4px;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    color: $gray-color-1;
+  }
+  &__maxmin-price {
+    display: flex;
+    margin-bottom: 16px;
+
+    @media screen and (min-width: 768px) {
+      & {
+        margin-bottom: 0;
+      }
+    }
+
+    span {
+      font-family: $main-font;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: $gray-color-2;
+    }
+  }
+  &__divider {
+    width: 1px;
+    height: 12px;
+    background-color: $gray-color-5;
+    margin: 0 12px;
+  }
+  &__price-input {
+    position: relative;
+    input {
+      width: 100%;
+      height: 56px;
+      text-align: center;
+      border-radius: 4px;
+      border: 1px solid $gray-color-4;
+      outline: none;
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.2px;
+      color: $gray-color-1;
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+
+      @media screen and (min-width: 768px) {
+        & {
+          width: 160px;
+        }
+      }
+    }
+  }
+  &__decrease-button {
+    position: absolute;
+    left: 16px;
+    top: 15px;
+    padding: 4px;
+    border-radius: 25px;
+  }
+  &__increase-button {
+    position: absolute;
+    right: 16px;
+    top: 15px;
+    padding: 4px;
+    border-radius: 25px;
+  }
+}
+.article-divider {
+  display: none;
+  height: 1px;
+  background-color: $gray-color-5;
+  margin-top: 43px;
+  margin-bottom: 55px;
+  @media screen and (min-width: 768px) {
+    & {
+      display: block;
+    }
+  }
+}
+.insurance-coverages {
+  margin-bottom: 106px;
+  &__title {
+    margin: 0;
+    margin-bottom: 40px;
+    padding: 0 32px;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: $gray-color-1;
+    @media screen and (min-width: 768px) {
+      & {
+        padding: 0;
+      }
+    }
+  }
+  &__menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0;
+    padding: 0;
+  }
+  &__menu-item {
+    list-style: none;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: $gray-color-1;
+    text-align: center;
+    padding: 0 16px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $gray-color-5;
+    cursor: pointer;
+    &--selected {
+      border-width: 2px;
+      border-color: $accent-color;
+      color: $accent-color;
+    }
+  }
+  &__options {
+    margin: 0;
+    padding: 0;
+  }
+  &__option {
+    list-style: none;
+    padding: 24px 0;
+    margin: 0 32px;
+    display: flex;
+    border-bottom: 1px solid $gray-color-5;
+    @media screen and (min-width: 768px) {
+      & {
+        padding: 32px 0;
+        margin: 0;
+      }
+    }
+
+    &--expanded {
+      padding: 32px 0;
+    }
+  }
+  &__option-content {
+    padding-left: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    p {
+      margin: 0;
+      display: none;
+      font-family: $text-font;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      color: $gray-color-2;
+      margin-bottom: 16px;
+      @media screen and (min-width: 768px) {
+        & {
+          margin-bottom: 0;
+        }
+      }
+    }
+    &--expanded {
+      p {
+        display: block;
+      }
+    }
+  }
+  &__option-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    @media screen and (min-width: 768px) {
+      & {
+        .switch {
+          display: none;
+        }
+      }
+    }
+
+    & > span {
+      flex: 1;
+      font-family: $main-font;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.2px;
+      color: $gray-color-1;
+      padding-right: 8px;
+      @media screen and (min-width: 768px) {
+        & {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  &__button-show-content {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    @media screen and (min-width: 768px) {
+      & {
+        display: none;
+      }
+    }
+    span {
+      font-family: $main-font;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 16px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: $acian-hover-color-2;
+      margin-right: 8px;
+    }
+    &--expanded {
+      span {
+        color: $gray-color-3;
+      }
+    }
+  }
+  &__button-show {
+    display: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    @media screen and (min-width: 768px) {
+      & {
+        display: inline;
+      }
+      &--expanded {
+        display: none;
+      }
+    }
+  }
+  &__button-hide {
+    display: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    @media screen and (min-width: 768px) {
+      & {
+        display: none;
+      }
+      &--expanded {
+        display: inline;
+      }
+    }
+  }
+  &__add-option,
+  &__remove-option {
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: $acian-hover-color-2;
+    display: none;
+    align-items: center;
+    margin-bottom: 0;
+    @media screen and (min-width: 768px) {
+      & {
+        display: flex;
+      }
+    }
+    &--expanded {
+      margin-bottom: 16px;
+    }
+    img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+    span {
+      margin-left: 12px;
+    }
+  }
+  &__option-img {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.purchase-confirmation {
+  width: 100%;
+  height: 76px;
+  padding: 14px 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px -10px 15px -3px rgba(0, 0, 0, 0.05);
+  @media screen and (min-width: 768px) {
+    & {
+      width: 288px;
+      flex-direction: column;
+      height: fit-content;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 0 32px;
+      box-shadow: none;
+    }
+  }
+  &__caption {
+    display: none;
+    margin: 0;
+    margin-top: 189px;
+    margin-bottom: 10px;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: $gray-color-1;
+    @media screen and (min-width: 768px) {
+      & {
+        display: block;
+      }
+    }
+  }
+  &__price {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    span {
+      &:nth-of-type(1) {
+        font-family: $main-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: -0.2px;
+        color: $gray-color-1;
+      }
+      &:nth-of-type(2) {
+        font-family: $main-font;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: $gray-color-1;
+      }
+      @media screen and (min-width: 768px) {
+        &:nth-of-type(1) {
+          font-size: 28px;
+          line-height: 36px;
+          margin-bottom: 4px;
+        }
+        &:nth-of-type(2) {
+          font-family: $text-font;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 20px;
+          letter-spacing: 0.2px;
+          color: $gray-color-2;
+        }
+      }
+    }
+  }
+  &__divider {
+    display: none;
+    height: 1px;
+    background-color: $gray-color-5;
+    margin-top: 19px;
+    width: 100%;
+    margin-bottom: 24px;
+    @media screen and (min-width: 768px) {
+      & {
+        display: block;
+      }
+    }
+  }
+  &__benefits {
+    display: none;
+    margin-bottom: 32px;
+    @media screen and (min-width: 768px) {
+      & {
+        display: block;
+      }
+    }
+    p {
+      font-family: $main-font;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.2px;
+      color: $gray-color-1;
+      margin: 0;
+      margin-bottom: 12px;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin-bottom: 8px;
+        img {
+          width: 16px;
+          height: 16px;
+        }
+        span {
+          margin-left: 16px;
+          font-family: $text-font;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 24px;
+          display: flex;
+          align-items: center;
+          color: $gray-color-2;
+        }
+      }
+    }
+  }
+  button {
+    background-color: $accent-color;
+    width: 168px;
+    height: 44px;
+    border-radius: 8px;
+    font-family: $main-font;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: $body-color;
+    border: none;
+    @media screen and (min-width: 768px) {
+      & {
+        width: 100%;
+      }
+    }
+  }
+  &:disabled {
+    background-color: $accent-mono-color;
+  }
 }
