@@ -41,8 +41,15 @@ export const useGetUserInfo = () => {
 
   const handleInputChange = (e: any) => {
     const name = e.target.name;
-    const value = e.target.value;
-
+    const value = e.target.value as string;
+    if (name === 'plateNumber') {
+      const newValue = value.toUpperCase();
+      setUser({
+        ...user,
+        [name]: newValue,
+      });
+      return;
+    }
     setUser({
       ...user,
       [name]: value,

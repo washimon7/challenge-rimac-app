@@ -3,22 +3,25 @@ import ICBack from '../assets/icons/ic_back.svg';
 import ICRedBack from '../assets/icons/ic_red_back.svg';
 import ICDecrease from '../assets/icons/ic_remove.svg';
 import ICIncrease from '../assets/icons/ic_add.svg';
-import ICArrowUp from '../assets/icons/ic_arrow_up.svg';
-import ICArrowDown from '../assets/icons/ic_arrow_down.svg';
 import Character from '../assets/images/char3.png';
-import ICTheft from '../assets/icons/ic_theft.svg';
-import ICDamage from '../assets/icons/ic_damage.svg';
-import ICPerdidaTotal from '../assets/icons/ic_perdidatotal.svg';
 import ICDissableNum1 from '../assets/icons/ic_dissable_num1.svg';
 import ICAbleNum2 from '../assets/icons/icon_able_num2.svg';
-import ICRedArrowUp from '../assets/icons/ic_red_arrow_up.svg';
-import ICRedArrowDown from '../assets/icons/ic_red_arrow_down.svg';
-import ICCircleAdd from '../assets/icons/ic_circle_add.svg';
-import ICCircleRemove from '../assets/icons/ic_circle_remove.svg';
 import ICCheck from '../assets/icons/ic_check.svg';
+import { Coverages } from '../components/quote-insurance/Coverages';
 
 export const QuoteInsurancePage = () => {
-  const { userInfo } = useQuoteInsurance();
+  const {
+    userInfo,
+    amountToInsureVehicle,
+    coverages,
+    monthlyInsurancePrice,
+    handleInputChange,
+    handleCheckboxChange,
+    increaseAmount,
+    decreaseAmount,
+    goToHome,
+    doRequireInsurance,
+  } = useQuoteInsurance();
 
   return (
     <main className='quote-insurance-container'>
@@ -43,7 +46,7 @@ export const QuoteInsurancePage = () => {
       </section>
       <section className='insurance'>
         <div className='insurance__button-back'>
-          <img src={ICRedBack} alt='regresar' />
+          <img onClick={goToHome} src={ICRedBack} alt='regresar' />
           <span>volver</span>
         </div>
         <div className='insurance__bg'>
@@ -56,7 +59,9 @@ export const QuoteInsurancePage = () => {
           </h5>
           <article className='insurance__vehicle-info'>
             <div>
-              <span className='insurance__vehicle-plate'>Placa: C2U-114</span>
+              <span className='insurance__vehicle-plate'>
+                Placa: {userInfo?.plateNumber}
+              </span>
               <span className='insurance__vehicle-model'>
                 Wolkswagen 2019 Golf
               </span>
@@ -78,16 +83,23 @@ export const QuoteInsurancePage = () => {
             </div>
           </div>
           <div className='insurance__price-input'>
-            <input type='number' step='0.01' />
-            <img
-              className='insurance__decrease-button'
-              src={ICDecrease}
-              alt='decrease'
+            <input
+              onChange={handleInputChange}
+              value={amountToInsureVehicle}
+              // type='number'
+              pattern='\d'
             />
             <img
+              onClick={decreaseAmount}
+              className='insurance__decrease-button'
+              src={ICDecrease}
+              alt='incrementar'
+            />
+            <img
+              onClick={increaseAmount}
               className='insurance__increase-button'
               src={ICIncrease}
-              alt='increase'
+              alt='decrementar'
             />
           </div>
         </article>
@@ -105,134 +117,16 @@ export const QuoteInsurancePage = () => {
             </li>
             <li className='insurance-coverages__menu-item'>Mejora tu plan</li>
           </ul>
-          <ul className='insurance-coverages__options'>
-            <li className='insurance-coverages__option insurance-coverages__option--expanded'>
-              <div className='insurance-coverages__option-img'>
-                <img src={ICTheft} alt='coverage' />
-              </div>
-              <div className='insurance-coverages__option-content insurance-coverages__option-content--expanded'>
-                <div className='insurance-coverages__option-input'>
-                  <span>Llanta robada</span>
-                  <label className='switch'>
-                    <input type='checkbox' />
-                    <span className='slider round'></span>
-                  </label>
-                  <img
-                    className='insurance-coverages__button-show insurance-coverages__button-show--expanded'
-                    src={ICRedArrowDown}
-                    alt='mostrar'
-                  />
-                  <img
-                    className='insurance-coverages__button-hide insurance-coverages__button-hide--expanded'
-                    src={ICRedArrowUp}
-                    alt='ocultar'
-                  />
-                </div>
-                <div className='insurance-coverages__remove-option insurance-coverages__remove-option--expanded'>
-                  <img src={ICCircleRemove} alt='icon' />
-                  <span>quitar</span>
-                </div>
-                <p>
-                  He salido de casa a las cuatro menos cinco para ir a la
-                  academia de ingles de mi pueblo Sant Cugat, al lado de
-                  Barcelona con mi bici, na llego a la academia que está en el
-                  centro del pueblo en una plaza medio-grande y dejo donde
-                  siempre la bici atada con una pitón a un sitio de esos de
-                  poner las bicis.
-                </p>
-                <div className='insurance-coverages__button-show-content insurance-coverages__button-show-content--expanded'>
-                  <span>Ver menos</span>
-                  <img src={ICArrowUp} alt='icon mostrar' />
-                </div>
-              </div>
-            </li>
-            <li className='insurance-coverages__option'>
-              <div className='insurance-coverages__option-img'>
-                <img src={ICDamage} alt='coverage' />
-              </div>
-              <div className='insurance-coverages__option-content'>
-                <div className='insurance-coverages__option-input'>
-                  <span>Choque y/o pasarte la luz roja</span>
-                  <label className='switch'>
-                    <input type='checkbox' />
-                    <span className='slider round'></span>
-                  </label>
-                  <img
-                    className='insurance-coverages__button-show'
-                    src={ICRedArrowDown}
-                    alt='mostrar'
-                  />
-                  <img
-                    className='insurance-coverages__button-hide'
-                    src={ICRedArrowUp}
-                    alt='ocultar'
-                  />
-                </div>
-                <div className='insurance-coverages__add-option'>
-                  <img src={ICCircleAdd} alt='icon' />
-                  <span>agregar</span>
-                </div>
-                <p>
-                  He salido de casa a las cuatro menos cinco para ir a la
-                  academia de ingles de mi pueblo Sant Cugat, al lado de
-                  Barcelona con mi bici, na llego a la academia que está en el
-                  centro del pueblo en una plaza medio-grande y dejo donde
-                  siempre la bici atada con una pitón a un sitio de esos de
-                  poner las bicis.
-                </p>
-                <div className='insurance-coverages__button-show-content'>
-                  <span>Ver más</span>
-                  <img src={ICArrowDown} alt='icon mostrar' />
-                </div>
-              </div>
-            </li>
-            <li className='insurance-coverages__option'>
-              <div className='insurance-coverages__option-img'>
-                <img src={ICPerdidaTotal} alt='coverage' />
-              </div>
-              <div className='insurance-coverages__option-content'>
-                <div className='insurance-coverages__option-input'>
-                  <span>Atropello en la vía Evitamiento</span>
-                  <label className='switch'>
-                    <input type='checkbox' />
-                    <span className='slider round'></span>
-                  </label>
-                  <img
-                    className='insurance-coverages__button-show'
-                    src={ICRedArrowDown}
-                    alt='mostrar'
-                  />
-                  <img
-                    className='insurance-coverages__button-hide'
-                    src={ICRedArrowUp}
-                    alt='ocultar'
-                  />
-                </div>
-                <div className='insurance-coverages__add-option'>
-                  <img src={ICCircleAdd} alt='icon' />
-                  <span>agregar</span>
-                </div>
-                <p>
-                  He salido de casa a las cuatro menos cinco para ir a la
-                  academia de ingles de mi pueblo Sant Cugat, al lado de
-                  Barcelona con mi bici, na llego a la academia que está en el
-                  centro del pueblo en una plaza medio-grande y dejo donde
-                  siempre la bici atada con una pitón a un sitio de esos de
-                  poner las bicis.
-                </p>
-                <div className='insurance-coverages__button-show-content'>
-                  <span>Ver más</span>
-                  <img src={ICArrowDown} alt='icon mostrar' />
-                </div>
-              </div>
-            </li>
-          </ul>
+          <Coverages
+            coverages={coverages}
+            handleCheckboxChange={handleCheckboxChange}
+          />
         </article>
       </section>
       <section className='purchase-confirmation'>
         <h4 className='purchase-confirmation__caption'>Monto</h4>
         <div className='purchase-confirmation__price'>
-          <span>$35.00</span>
+          <span>${monthlyInsurancePrice}.00</span>
           <span>mensual</span>
         </div>
         <div className='purchase-confirmation__divider'></div>
@@ -253,7 +147,7 @@ export const QuoteInsurancePage = () => {
             </li>
           </ul>
         </div>
-        <button>Lo quiero</button>
+        <button onClick={doRequireInsurance}>Lo quiero</button>
       </section>
     </main>
   );

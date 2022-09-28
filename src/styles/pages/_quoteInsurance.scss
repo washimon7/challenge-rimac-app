@@ -476,6 +476,34 @@
     display: flex;
     align-items: center;
     align-self: flex-start;
+    cursor: pointer;
+    @media screen and (min-width: 768px) {
+      & {
+        display: none;
+      }
+    }
+    span {
+      font-family: $main-font;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 16px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: $acian-hover-color-2;
+      margin-right: 8px;
+    }
+    &--expanded {
+      span {
+        color: $gray-color-3;
+      }
+    }
+  }
+  &__button-hide-content {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    cursor: pointer;
     @media screen and (min-width: 768px) {
       & {
         display: none;
