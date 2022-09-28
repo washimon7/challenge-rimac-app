@@ -1,10 +1,13 @@
 @import 'colors';
 @import 'variables';
+@import 'mixins';
 @import 'custom/toggleSwitch';
 @import 'components/app';
 @import 'components/header';
+@import 'components/footer';
 @import 'pages/home';
 @import 'pages/quoteInsurance';
+@import 'pages/quotedInsurance';
 
 html {
   box-sizing: border-box;

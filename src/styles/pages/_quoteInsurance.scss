@@ -307,8 +307,10 @@
       line-height: 24px;
       letter-spacing: 0.2px;
       color: $gray-color-1;
+      appearance: textfield;
+      -moz-appearance: none;
       -webkit-appearance: none;
-      -moz-appearance: textfield;
+      padding: 0 44px;
 
       @media screen and (min-width: 768px) {
         & {
@@ -323,6 +325,7 @@
     top: 15px;
     padding: 4px;
     border-radius: 25px;
+    cursor: pointer;
   }
   &__increase-button {
     position: absolute;
@@ -330,6 +333,7 @@
     top: 15px;
     padding: 4px;
     border-radius: 25px;
+    cursor: pointer;
   }
 }
 .article-divider {
@@ -700,27 +704,11 @@
     }
   }
   button {
-    background-color: $accent-color;
-    width: 168px;
-    height: 44px;
-    border-radius: 8px;
-    font-family: $main-font;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 16px;
-    text-align: center;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: $body-color;
-    border: none;
+    @include defaultButton(168px, 44px);
     @media screen and (min-width: 768px) {
       & {
         width: 100%;
       }
     }
-  }
-  &:disabled {
-    background-color: $accent-mono-color;
   }
 }

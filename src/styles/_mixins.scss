@@ -1,0 +1,20 @@
+@mixin defaultButton($width, $height) {
+  width: $width;
+  height: $height;
+  background-color: $accent-color;
+  border-radius: 8px;
+  font-family: $main-font;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: $body-color;
+  border: none;
+  &:disabled {
+    background-color: $accent-mono-color;
+    cursor: auto;
+  }
+}

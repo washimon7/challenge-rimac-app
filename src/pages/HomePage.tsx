@@ -39,7 +39,9 @@ export const HomePage = () => {
           src={AdvertisingImg1}
           alt='Seguro vehicular'
         />
-        <Footer />
+        <div className='home-footer'>
+          <Footer />
+        </div>
       </section>
       <form onSubmit={doGetUserInfo} className='home-form'>
         <h2 className='home-form__title'>Déjanos tus datos</h2>

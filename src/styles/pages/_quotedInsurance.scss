@@ -1,0 +1,109 @@
+.quoted-insurance-container {
+  margin-top: 56px;
+  background-color: $body-color;
+  border-top: 1px solid $gray-color-6;
+  min-height: calc(100vh - 56px);
+  @media screen and (min-width: 768px) {
+    & {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+    }
+  }
+}
+
+.background {
+  position: relative;
+  background-color: $gray-color-7;
+  &__mobile-image {
+    height: 208px;
+    object-fit: cover;
+    width: 100%;
+    @media screen and (min-width: 768px) {
+      & {
+        display: none;
+      }
+    }
+  }
+  &__web-image {
+    display: none;
+    width: 416px;
+    height: 448px;
+    position: absolute;
+    top: 96px;
+    right: -96px;
+    @media screen and (min-width: 768px) {
+      & {
+        display: inline;
+      }
+    }
+  }
+}
+
+.welcome {
+  width: 100%;
+  padding: 48px 32px 0;
+  margin: 0;
+  @media screen and (min-width: 768px) {
+    & {
+      width: 480px;
+      padding: 96px 32px 0;
+      margin: 0 auto;
+    }
+  }
+  &__title {
+    margin: 0;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.6px;
+    color: $gray-color-1;
+    margin-bottom: 24px;
+    @media screen and (min-width: 768px) {
+      & {
+        font-size: 36px;
+        line-height: 48px;
+        letter-spacing: -0.2px;
+      }
+    }
+    span {
+      color: $accent-color;
+    }
+  }
+  p {
+    margin: 0;
+    font-family: $text-font;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 28px;
+    color: $gray-color-2;
+    margin-bottom: 40px;
+    span {
+      font-weight: 400;
+    }
+  }
+  button {
+    @include defaultButton(100%, 56px);
+    @media screen and (min-width: 768px) {
+      @include defaultButton(255px, 56px);
+    }
+  }
+}
+
+.quoted-insurance-footer {
+  display: block;
+  height: 76px;
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  padding-left: 32px;
+  border-top: 1px solid $gray-color-5;
+  @media screen and (min-width: 768px) {
+    & {
+      display: none;
+    }
+  }
+}
