@@ -1,8 +1,11 @@
 import ThankYouImage1 from '../assets/images/thank-you-1.png';
 import ThankYouImage2 from '../assets/images/thank-you-2.png';
 import { Footer } from '../components/shared/Footer';
+import { useQuotedInsurance } from '../hooks/useQuotedInsurance';
 
 export const QuotedInsurancePage = () => {
+  const { insuranceAmount, montlyInsurancePrice } = useQuotedInsurance();
+
   return (
     <main className='quoted-insurance-container'>
       <section className='background'>
